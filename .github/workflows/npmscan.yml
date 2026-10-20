@@ -21,6 +21,9 @@ jobs:
     name: "npmscan dependency check"
     runs-on: ubuntu-latest
     timeout-minutes: 20
+    env:
+      # Demo only: an address that never answers, to show a hung API.
+      NPMSCAN_API_URL: https://10.255.255.1/api/analysis/dependency-diff
     permissions:
       contents: read
       pull-requests: write # for the one report comment; fork PRs get a read-only token and use the job summary
